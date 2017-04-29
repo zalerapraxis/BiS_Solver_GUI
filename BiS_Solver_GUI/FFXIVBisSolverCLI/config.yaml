@@ -1,0 +1,292 @@
+jobConfigs:
+  PLD:
+    weights:
+      Physical Damage: 26.523
+      Strength: 1
+      Vitality: 1
+      Critical Hit Rate: 0.541
+      Determination: 0.396
+      Skill Speed: 0.274
+    statRequirements:
+      Accuracy: 699
+    baseCastTimes:
+    - 2.5
+
+  WAR:
+    weights:
+      Physical Damage: 27.095
+      Strength: 1
+      Vitality: 1
+      Critical Hit Rate: 0.546
+      Determination: 0.387
+      Skill Speed: 0.350
+    statRequirements:
+      Accuracy: 699
+      Skill Speed: 550
+    baseCastTimes:
+    - 2.5
+
+  DRK:
+    weights:
+      Physical Damage: 26.547
+      Strength: 1
+      Vitality: 1
+      Critical Hit Rate: 0.530
+      Determination: 0.380
+      Skill Speed: 0.315
+      Parry: 0.011
+    statRequirements:
+      Accuracy: 699
+    baseCastTimes:
+    - 2.5
+
+  DRG:
+    weights:
+      Physical Damage: 14.956
+      Strength: 1
+      Critical Hit Rate: 0.279
+      Determination: 0.207
+      Skill Speed: 0.170
+    statRequirements:
+      Accuracy: 699
+    baseCastTimes:
+    - 2.5
+
+  MNK:
+    weights:
+      Physical Damage: 15.459
+      Strength: 1
+      Critical Hit Rate: 0.297
+      Determination: 0.212
+      Skill Speed: 0.173
+    statRequirements:
+      Accuracy: 699
+    baseCastTimes:
+    - 2.5
+    castTimeBuffs:
+    - 0.15
+
+  NIN:
+    weights:
+      Physical Damage: 15.195
+      Dexterity: 1
+      Critical Hit Rate: 0.282
+      Determination: 0.210
+      Skill Speed: 0.141
+    statRequirements:
+      Accuracy: 699
+    baseCastTimes:
+    - 2.5
+    castTimeBuffs:
+    - 0.15
+
+  BRD:
+    weights:
+      Physical Damage: 16.824
+      Dexterity: 1
+      Skill Speed: 0.233
+      Determination: 0.215
+      Critical Hit Rate: 0.366
+    statRequirements:
+      Accuracy: 699
+    baseCastTimes:
+    - 2.5
+
+
+  MCH:
+    weights:
+      Physical Damage: 13.459
+      Dexterity: 1
+      Skill Speed: 0.106
+      Determination: 0.174
+      Critical Hit Rate: 0.210
+    statRequirements:
+      Accuracy: 699
+    baseCastTimes:
+    - 2.5
+
+  BLM:
+    weights:
+      Magic Damage: 11.884
+      Intelligence: 1
+      Critical Hit Rate: 0.256
+      Determination: 0.206
+      Spell Speed: 0.283
+    statRequirements:
+      Accuracy: 592
+      Piety: 284
+    baseCastTimes:
+    - 2.5
+    - 3
+
+  SMN:
+    weights:
+      Magic Damage: 11.835
+      Intelligence: 1
+      Critical Hit Rate: 0.287
+      Determination: 0.192
+      Spell Speed: 0.195
+    statRequirements:
+      Accuracy: 592
+    baseCastTimes:
+    - 2.5
+
+  SCH:
+    weights:
+      Magic Damage: 9.128
+      Mind: 1
+      Critical Hit Rate: 0.266
+      Determination: 0.190
+      Spell Speed: 0.366
+    statRequirements:
+      Accuracy: 592
+    baseCastTimes:
+    - 2.5
+  
+  WHM:
+    weights:
+      Magic Damage: 9.128
+      Mind: 1
+      Critical Hit Rate: 0.182
+      Determination: 0.159
+      Spell Speed: 0.135
+    statRequirements:
+      Accuracy: 592
+    baseCastTimes:
+    - 2.5
+    - 3
+
+  AST:
+    weights:
+      Magic Damage: 11.685
+      Mind: 1
+      Critical Hit Rate: 0.253
+      Determination: 0.185
+      Spell Speed: 0.332
+    statRequirements:
+      Accuracy: 592
+    baseCastTimes:
+    - 2.5
+    - 3
+
+
+relicConfigs:
+  275: 
+    items: [16050, 16051, 16052, 16053, 16054, 16055, 16056, 16057, 16058, 16059, 16060, 16061, 16062, 16063]
+    statCap: 240
+    statCapOverrides:
+      PLD:
+        Main Hand: 172
+        Off Hand: 68
+    conversionFunction:
+    - [0, 0]
+    - [5, 5]
+    - [6, 7]
+    - [10, 11]
+    - [11, 13]
+    - [16, 18]
+    - [17, 20]
+    - [21, 24]
+    - [22, 26]
+    - [27, 31]
+    - [28, 33]
+    - [32, 37]
+    - [33, 39]
+    - [38, 44]
+    - [39, 46]
+    - [43, 50]
+    - [44, 52]
+    - [49, 57]
+    - [50, 59]
+    - [54, 63]
+    - [55, 65]
+    - [59, 69]
+    - [60, 71]
+    - [65, 76]
+    - [66, 78]
+    - [70, 82]
+    - [71, 84]
+    - [76, 89]
+    - [77, 91]
+    - [81, 95]
+    - [82, 97]
+    - [87, 102]
+    - [88, 104]
+    - [92, 108]
+    - [93, 110]
+    - [98, 115]
+    - [99, 117]
+    - [103, 121]
+    - [104, 123]
+    - [109, 128]
+    - [110, 130]
+    - [114, 134]
+    - [115, 136]
+    - [119, 140]
+    - [120, 142]
+    conversionOverride:
+        Piety:
+        - [0, 0]
+        - [8, 8]
+        - [9, 10]
+        - [17, 18]
+        - [18, 20]
+        - [26, 28]
+        - [27, 30]
+        - [35, 38]
+        - [36, 40]
+        - [44, 48]
+        - [45, 50]
+        - [53, 58]
+        - [54, 60]
+        - [62, 68]
+        - [63, 70]
+        - [71, 78]
+        - [72, 80]
+        - [80, 88]
+        - [81, 90]
+        - [89, 98]
+        - [90, 100]
+        - [98, 108]
+        - [99, 110]
+        - [107, 118]
+        - [108, 120]
+        - [116, 128]
+        - [117, 130]
+        - [125, 138]
+        - [126, 140]
+
+
+baseStats:
+  Strength: 248
+  Dexterity: 263
+  Vitality: 228
+  Piety: 263
+  Intelligence: 262
+  Mind: 264
+  Accuracy: 354
+  Critical Hit Rate: 354
+  Determination: 218
+  Skill Speed: 354
+  Spell Speed: 354
+
+equipmentOverrides:
+  # Add stats like in e.g. baseStats
+  Coven Shield: 
+  Coven Blade:
+  Coven Fangs:
+  Coven Battleaxe:
+  Coven Spear:
+  Coven Longbow:
+  Coven Claws:
+  Coven Cane:
+  Coven Rod:
+  Coven Grimoire:
+  Coven Codex:
+  Coven Greatsword:
+  Coven Musketoon:
+  Coven Astrometer:
+  
+
+allocatedStatsCap: 35
+overmeldThreshold: 0
