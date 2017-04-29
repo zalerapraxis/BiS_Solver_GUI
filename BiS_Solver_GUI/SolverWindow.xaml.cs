@@ -1,24 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace BiS_Solver_GUI
 {
     /// <summary>
     /// Interaction logic for SolverWindow.xaml
     /// </summary>
-    public partial class SolverWindow : Window
+    public partial class SolverWindow
     {
         public int SolverPid;
         public string SolverOutput;
@@ -31,7 +20,7 @@ namespace BiS_Solver_GUI
 
         private void LaunchSolver(string solverLaunchArgs)
         {
-            txtSolverOutput.Text = "Loading...";
+            TxtSolverOutput.Text = "Loading...";
             Process solver = new Process();
             ProcessStartInfo startInfo =
                 new ProcessStartInfo
@@ -58,11 +47,11 @@ namespace BiS_Solver_GUI
             Dispatcher.Invoke(() =>
             {
                 SolverOutput = SolverOutput + output.Data + Environment.NewLine;
-                if (output.Data == "INTEGER OPTIMAL SOLUTION FOUND")
+                if (output.Data == "INTEGER OPTIMAL SOLUTION FOUND") // Gearset found, clear the output and post just the gearset
                 {
                     SolverOutput = "";
                 }
-                txtSolverOutput.Text = SolverOutput;
+                TxtSolverOutput.Text = SolverOutput;
             });
         }
 
@@ -82,7 +71,7 @@ namespace BiS_Solver_GUI
         private void btnKillSolver_Click(object sender, RoutedEventArgs e)
         {
             KillRunningSolver();
-            txtSolverOutput.Text = "";
+            TxtSolverOutput.Text = "";
             Close();
         }
     }
