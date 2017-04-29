@@ -1,12 +1,13 @@
-﻿<Window x:Class="BiS_Solver_GUI.MainWindow"
+﻿<Controls:MetroWindow x:Class="BiS_Solver_GUI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
         Closed="MainWindow_OnClosed"
-        Title="BiS Solver GUI" Height="217" Width="535" ResizeMode="NoResize">
+        Title="BiS Solver GUI" Height="225.549" Width="535" ResizeMode="NoResize">
     <Window.Resources>
     </Window.Resources>
     <Grid>
@@ -94,11 +95,11 @@
                 </StackPanel>
             </ComboBoxItem>
         </ComboBox>
-        <CheckBox x:Name="ChkRelic" Content="Use Anima?" ToolTip="Anima weapon will always be BiS." HorizontalAlignment="Left" Margin="180,17,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="ChkRelic" Content="Use Anima?" ToolTip="Anima weapon will always be BiS." HorizontalAlignment="Left" Margin="171,17,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="ChkSsTiers" IsChecked="True" Content="Use SS Tiers?" ToolTip="Calculate using SS tiering." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="262,17,0,0"/>
-        <CheckBox x:Name="ChkFood" Content="Use food?" ToolTip="Accuracy on food can change your BiS, but you'll have to use food to meet ACC caps." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="351,17,0,0"/>
+        <CheckBox x:Name="ChkFood" Content="Use food?" ToolTip="Accuracy on food can change your BiS, but you'll have to use food to meet ACC caps." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="360,17,0,0"/>
         <Button x:Name="BtnXivdb" Content="XIVDB" HorizontalAlignment="Left" VerticalAlignment="Top" Width="46" Margin="463,12,0,0" Click="BtnXIVDB_Click"/>
-        <StackPanel HorizontalAlignment="Left" Height="128" VerticalAlignment="Top" Width="155" Margin="10,43,0,0">
+        <StackPanel HorizontalAlignment="Left" Height="144" VerticalAlignment="Top" Width="163" Margin="10,43,0,0">
             <Label Content="Include Savage gear up to:"/>
             <RadioButton x:Name="OptLimitAll" GroupName="SavageTurns" Content="None (exclude all gear)" Margin="0,0,0,0"/>
             <RadioButton x:Name="OptA9S" GroupName="SavageTurns" Content="A9S (rightside, belt)" Margin="0,5,0,0"/>
@@ -135,7 +136,7 @@
             </TextBox.Style>
         </TextBox>
 
-        <Button x:Name="BtnChangeGamePath" Content="..." HorizontalAlignment="Left" Margin="463,106,0,0" VerticalAlignment="Top" Width="46" Click="BtnChangeGamePath_Click"/>
+        <Button x:Name="BtnChangeGamePath" Content="..." HorizontalAlignment="Left" Margin="463,106,0,0" VerticalAlignment="Top" Width="22" Click="BtnChangeGamePath_Click" Height="0"/>
         <TextBox x:Name="TxtGamePath" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Margin="193,106,0,0">
             <TextBox.Style>
                 <Style TargetType="TextBox">
@@ -162,4 +163,4 @@
         </TextBox>
         <Button x:Name="BtnStart" Content="Start" HorizontalAlignment="Left" Margin="426,152,0,0" VerticalAlignment="Top" Width="83" Click="BtnStart_Click"/>
     </Grid>
-</Window>
+</Controls:MetroWindow>
