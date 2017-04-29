@@ -40,7 +40,7 @@ namespace BiS_Solver_GUI
 
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
-            if (((ComboBoxItem)CmbJobs.SelectedItem).Name == null)
+            if (((ComboBoxItem)CmbJobs.SelectedItem) == null)
             {
                 MessageBox.Show("You must specify a class before starting the solver.");
                 return;

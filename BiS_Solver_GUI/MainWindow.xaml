@@ -7,9 +7,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
         Closed="MainWindow_OnClosed"
-        Title="BiS Solver GUI" Height="225.549" Width="535" ResizeMode="NoResize">
-    <Window.Resources>
-    </Window.Resources>
+        Title="BiS Solver GUI" Height="216.904" Width="522.426" ResizeMode="NoResize">
     <Grid>
         <Label Content="Job:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,12,0,0" Width="40"/>
         <ComboBox x:Name="CmbJobs" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="45,13,0,0">
@@ -19,79 +17,79 @@
             <ComboBoxItem x:Name="PLD">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/BiS_Solver_GUI;component/JobIcons/pld.png" Width="20" Height="20"/>
-                    <TextBlock Foreground="DodgerBlue">PLD</TextBlock>
+                    <TextBlock Foreground="DeepSkyBlue">PLD</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem x:Name="WAR">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/BiS_Solver_GUI;component/JobIcons/war.png" Width="20" Height="20"/>
-                    <TextBlock Foreground="DodgerBlue">WAR</TextBlock>
+                    <TextBlock Foreground="DeepSkyBlue">WAR</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem x:Name="DRK">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/BiS_Solver_GUI;component/JobIcons/drk.png" Width="20" Height="20"/>
-                    <TextBlock Foreground="DodgerBlue">DRK</TextBlock>
+                    <TextBlock Foreground="DeepSkyBlue">DRK</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem x:Name="WHM">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/BiS_Solver_GUI;component/JobIcons/whm.png" Width="20" Height="20"/>
-                    <TextBlock Foreground="Green">WHM</TextBlock>
+                    <TextBlock Foreground="LimeGreen">WHM</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem x:Name="SCH">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/BiS_Solver_GUI;component/JobIcons/sch.png" Width="20" Height="20"/>
-                    <TextBlock Foreground="Green">SCH</TextBlock>
+                    <TextBlock Foreground="LimeGreen">SCH</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem x:Name="AST">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/BiS_Solver_GUI;component/JobIcons/ast.png" Width="20" Height="20"/>
-                    <TextBlock Foreground="Green">AST</TextBlock>
+                    <TextBlock Foreground="LimeGreen">AST</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem x:Name="DRG">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/BiS_Solver_GUI;component/JobIcons/drg.png" Width="20" Height="20"/>
-                    <TextBlock Foreground="DarkRed">DRG</TextBlock>
+                    <TextBlock Foreground="Red">DRG</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem x:Name="NIN">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/BiS_Solver_GUI;component/JobIcons/nin.png" Width="20" Height="20"/>
-                    <TextBlock Foreground="DarkRed">NIN</TextBlock>
+                    <TextBlock Foreground="Red">NIN</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem x:Name="MNK">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/BiS_Solver_GUI;component/JobIcons/mnk.png" Width="20" Height="20"/>
-                    <TextBlock Foreground="DarkRed">MNK</TextBlock>
+                    <TextBlock Foreground="Red">MNK</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem x:Name="MCH">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/BiS_Solver_GUI;component/JobIcons/mch.png" Width="20" Height="20"/>
-                    <TextBlock Foreground="DarkRed">MCH</TextBlock>
+                    <TextBlock Foreground="Red">MCH</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem x:Name="BRD">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/BiS_Solver_GUI;component/JobIcons/brd.png" Width="20" Height="20"/>
-                    <TextBlock Foreground="DarkRed">BRD</TextBlock>
+                    <TextBlock Foreground="Red">BRD</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem x:Name="SMN">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/BiS_Solver_GUI;component/JobIcons/smn.png" Width="20" Height="20"/>
-                    <TextBlock Foreground="DarkRed">SMN</TextBlock>
+                    <TextBlock Foreground="Red">SMN</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem x:Name="BLM">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/BiS_Solver_GUI;component/JobIcons/blm.png" Width="20" Height="20"/>
-                    <TextBlock Foreground="DarkRed">BLM</TextBlock>
+                    <TextBlock Foreground="Red">BLM</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
         </ComboBox>
@@ -106,61 +104,14 @@
             <RadioButton x:Name="OptA10S" GroupName="SavageTurns" Content="A10S (head, gloves, boots)" Margin="0,5,0,0"/>
             <RadioButton x:Name="OptA11S" GroupName="SavageTurns" Content="A11S (pants)" Margin="0,5,0,0"/>
             <RadioButton x:Name="OptNoLimit" GroupName="SavageTurns" Content="No limit (include all gear)" Margin="0,5,0,0"/>
-
         </StackPanel>
         <Label Content="Exclude specific IDs:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="187,43,0,0"/>
-        <TextBox x:Name="TxtExcludeIDs" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Margin="301,43,0,0"/>
+        <TextBox x:Name="TxtExcludeIDs" Controls:TextBoxHelper.Watermark="Example: 16480 16467" Controls:TextBoxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Margin="301,43,0,0"/>
         <Label Content="Include specific IDs:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="187,74,0,0"/>
-        <TextBox x:Name="TxtIncludeIDs" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Margin="301,74,0,0">
-            <TextBox.Style>
-                <Style TargetType="TextBox">
-                    <Style.Resources>
-                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
-                            <VisualBrush.Visual>
-                                <Label Content="Example: 16478 16480" Foreground="LightGray" />
-                            </VisualBrush.Visual>
-                        </VisualBrush>
-                    </Style.Resources>
-                    <Style.Triggers>
-                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
-                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                        </Trigger>
-                        <Trigger Property="Text" Value="{x:Null}">
-                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                        </Trigger>
-                        <Trigger Property="IsKeyboardFocused" Value="True">
-                            <Setter Property="Background" Value="White" />
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBox.Style>
-        </TextBox>
+        <TextBox x:Name="TxtIncludeIDs" Controls:TextBoxHelper.Watermark="Example: 16480 16467" Controls:TextBoxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Margin="301,74,0,0"/>
 
-        <Button x:Name="BtnChangeGamePath" Content="..." HorizontalAlignment="Left" Margin="463,106,0,0" VerticalAlignment="Top" Width="22" Click="BtnChangeGamePath_Click" Height="0"/>
-        <TextBox x:Name="TxtGamePath" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Margin="193,106,0,0">
-            <TextBox.Style>
-                <Style TargetType="TextBox">
-                    <Style.Resources>
-                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
-                            <VisualBrush.Visual>
-                                <Label Content="Game path" Foreground="LightGray" />
-                            </VisualBrush.Visual>
-                        </VisualBrush>
-                    </Style.Resources>
-                    <Style.Triggers>
-                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
-                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                        </Trigger>
-                        <Trigger Property="Text" Value="{x:Null}">
-                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                        </Trigger>
-                        <Trigger Property="IsKeyboardFocused" Value="True">
-                            <Setter Property="Background" Value="White" />
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBox.Style>
-        </TextBox>
+        <Button x:Name="BtnChangeGamePath" Content="..." HorizontalAlignment="Left" Margin="487,112,0,0" VerticalAlignment="Top" Width="22" Click="BtnChangeGamePath_Click" Height="26"/>
+        <TextBox x:Name="TxtGamePath" Controls:TextBoxHelper.Watermark="Game path" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Margin="193,112,0,0"/>
         <Button x:Name="BtnStart" Content="Start" HorizontalAlignment="Left" Margin="426,152,0,0" VerticalAlignment="Top" Width="83" Click="BtnStart_Click"/>
     </Grid>
 </Controls:MetroWindow>

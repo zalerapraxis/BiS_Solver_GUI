@@ -134,6 +134,7 @@
     <None Include="FFXIVBisSolverCLI\config.yaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="FFXIVBisSolverCLI\LICENSE" />
     <None Include="FFXIVBisSolverCLI\SaintCoinach.History.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

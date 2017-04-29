@@ -39,7 +39,7 @@ namespace BiS_Solver_GUI
             solver.BeginOutputReadLine();
             SolverPid = solver.Id;
 
-            Title = solverLaunchArgs;
+            Title = solverLaunchArgs.Substring(0, 3);
         }
 
         private void OutputHandler(object sendingProcess, DataReceivedEventArgs output)
