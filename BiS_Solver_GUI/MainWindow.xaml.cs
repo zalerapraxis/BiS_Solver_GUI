@@ -24,8 +24,7 @@ namespace BiS_Solver_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public int SolverPid;
-        public string SolverOutput;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -58,13 +57,12 @@ namespace BiS_Solver_GUI
                 MessageBox.Show("You must specify a class before starting the solver.");
                 return;
             }
-            KillRunningSolvers();
             var job = ((ComboBoxItem)cmbJobs.SelectedItem).Name;
             var gamepath = Properties.Settings.Default.gamepath;
             var miscFlags = GetMiscFlags();
-            var savageExcludeFlags = GetSavageExcludes();
-            var specificIdExcludes = txtExcludeIDs.Text;
-            var specificIdIncludes = txtIncludeIDs.Text;
+            var savageExcludeFlags = GetSavagePresetExcludes();
+            var specificIdExcludes = GetSpecificExcludes();
+            var specificIdIncludes = GetSpecificIncludes();
 
             var launchCmdBuilder = new StringBuilder();
             launchCmdBuilder.Append($"{job} ");
@@ -75,51 +73,8 @@ namespace BiS_Solver_GUI
             launchCmdBuilder.Append($"{specificIdIncludes} ");
             var solverLaunchArgs = launchCmdBuilder.ToString();
 
-            LaunchSolver(solverLaunchArgs);
-        }
-
-        private void btnCancelSolver_Click(object sender, RoutedEventArgs e)
-        {
-            KillRunningSolvers();
-        }
-
-        private void LaunchSolver(string solverLaunchArgs)
-        {
-            txtSolverOutput.Text = "Loading...";
-            Process solver = new Process();
-            ProcessStartInfo startInfo =
-                new ProcessStartInfo
-                {
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                    WorkingDirectory = "FFXIVBisSolverCLI",
-                    FileName = @"FFXIVBisSolverCLI\FFXIVBisSolverCLI.exe",
-                    Arguments = solverLaunchArgs,
-                    UseShellExecute = false,
-                    RedirectStandardOutput = true,
-                    CreateNoWindow = true
-                };
-            solver.StartInfo = startInfo;
-            solver.OutputDataReceived += OutputHandler;
-            solver.Start();
-            solver.BeginOutputReadLine();
-            SolverPid = solver.Id;
-
-            Height = 640;
-        }
-
-        private void OutputHandler(object sendingProcess, DataReceivedEventArgs output)
-        {
-            Dispatcher.Invoke(() =>
-            {
-                SolverOutput = SolverOutput + output.Data + Environment.NewLine;
-                if (output.Data == "INTEGER OPTIMAL SOLUTION FOUND")
-                {
-                    SolverOutput = "";
-                }
-                txtSolverOutput.Text = SolverOutput;
-                txtSolverOutput.ScrollToEnd();
-            });
-            
+            SolverWindow solverWindow = new SolverWindow(solverLaunchArgs);
+            solverWindow.Show();
         }
 
         private string GetMiscFlags()
@@ -141,7 +96,7 @@ namespace BiS_Solver_GUI
             return miscFlags;
         }
 
-        private string GetSavageExcludes()
+        private string GetSavagePresetExcludes()
         {
             var savageExcludes = "";
             // Build excludes list for Savage fights
@@ -163,26 +118,67 @@ namespace BiS_Solver_GUI
             {
                 savageExcludes = Properties.Resources.a12sExcludes;
             }
+
+            // Clean preset excludes if user has specified IDs to include specifically
+            if (!string.IsNullOrWhiteSpace(txtIncludeIDs.Text))
+            {
+                var includeIds = txtIncludeIDs.Text.Split(' ');
+                foreach (var id in includeIds)
+                {
+                    if (savageExcludes.Contains(id))
+                    {
+                        var idIndex = savageExcludes.IndexOf(id);
+                        savageExcludes = savageExcludes.Remove(idIndex - 3, 9);
+                    }
+                }
+            }
+
             return savageExcludes;
         }
 
-        private void KillRunningSolvers()
+        private string GetSpecificExcludes()
         {
-            Process p = null;
-            try
+            var ids = txtExcludeIDs.Text.Split(' ');
+            var output = "";
+
+            if (!string.IsNullOrWhiteSpace(txtExcludeIDs.Text))
             {
-                p = Process.GetProcessById(SolverPid);
-                p.Kill();
+                var specificExcludesBuilder = new StringBuilder();
+                foreach (var id in ids)
+                {
+                    specificExcludesBuilder.Append($"-X {id}");
+                }
+                output = specificExcludesBuilder.ToString();
             }
-            catch (Exception)
-            {
-                // Ignore
-            }
+            return output;
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private string GetSpecificIncludes()
         {
-            KillRunningSolvers();
+            var ids = txtIncludeIDs.Text.Split(' ');
+            var output = "";
+
+            if (!string.IsNullOrWhiteSpace(txtIncludeIDs.Text))
+            {
+                var specificIncludesBuilder = new StringBuilder();
+                foreach (var id in ids)
+                {
+                    specificIncludesBuilder.Append($"-R {id} ");
+                }
+                output = specificIncludesBuilder.ToString();
+
+                //savageExcludeFlags = savageExcludeFlags.Replace(specificIdIncludes, "");
+            }
+            return output;
+        }
+
+        private void MainWindow_OnClosed(object sender, EventArgs e)
+        {
+            foreach (var process in Process.GetProcessesByName("FFXIVBisSolverCLI"))
+            {
+                process.Kill();
+            }
+            Application.Current.Shutdown();
         }
     }
 }

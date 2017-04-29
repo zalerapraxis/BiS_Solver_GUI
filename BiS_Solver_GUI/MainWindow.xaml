@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BiS_Solver_GUI"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Closing="Window_Closing"
+        Closed="MainWindow_OnClosed"
         Title="BiS Solver GUI" Height="217" Width="535" ResizeMode="NoResize">
     <Window.Resources>
         <DataTemplate x:Key="cmbJobTemplate">
@@ -116,14 +117,33 @@
         <Label Content="Exclude specific IDs:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="187,43,0,0"/>
         <TextBox x:Name="txtExcludeIDs" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Margin="301,43,0,0"/>
         <Label Content="Include specific IDs:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="187,74,0,0"/>
-        <TextBox x:Name="txtIncludeIDs" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Margin="301,74,0,0"/>
+        <TextBox x:Name="txtIncludeIDs" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Margin="301,74,0,0">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Style.Resources>
+                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                            <VisualBrush.Visual>
+                                <Label Content="Example: 16478 16480" Foreground="LightGray" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Style.Resources>
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="Background" Value="White" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
 
         <Button x:Name="btnChangeGamePath" Content="Change game path" HorizontalAlignment="Left" Margin="221,152,0,0" VerticalAlignment="Top" Width="116" Click="btnChangeGamePath_Click"/>
         <TextBox x:Name="txtGamePath" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" Margin="221,129,0,0"/>
-        <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="342,152,0,0" VerticalAlignment="Top" Width="83" Click="btnStart_Click"/>
-        <Button x:Name="btnCancelSolver" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Margin="430,152,0,0" Click="btnCancelSolver_Click"/>
-        <TextBox x:Name="txtSolverOutput" HorizontalAlignment="Left" Height="400" Margin="10,187,0,0" TextWrapping="Wrap" Text="Loading..." VerticalAlignment="Top" Width="500"/>
-        
-
+        <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="426,152,0,0" VerticalAlignment="Top" Width="83" Click="btnStart_Click"/>
     </Grid>
 </Window>
