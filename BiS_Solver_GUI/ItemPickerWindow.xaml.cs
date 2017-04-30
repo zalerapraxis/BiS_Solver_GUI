@@ -23,7 +23,7 @@ namespace BiS_Solver_GUI
 
         private void PopulateDatagrid()
         {
-            var realm = new ARealmReversed(Properties.Settings.Default.gamepath, SaintCoinach.Ex.Language.English);
+            var realm = new ARealmReversed(Properties.Settings.Default.gamepath, "FFXIVBisSolverCLI\\SaintCoinach.History.zip", SaintCoinach.Ex.Language.English);
             var itemDataSheet = realm.GameData.GetSheet<Item>();
 
             // Alexandrian
