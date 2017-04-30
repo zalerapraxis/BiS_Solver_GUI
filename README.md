@@ -3,6 +3,6 @@ GUI wrapper for kanetw's BiS solver
 
 Requires [KaneTW's BiS Solver](https://github.com/KaneTW/FFXIVBisSolver) (of course?).
 
-Very little of this has been tested.
+For now, you'll need to copy the SaintCoinach.History.zip file from the FFXIVBisSolverCLI directory into the application directory.
 
-![Image](http://i.imgur.com/QRF99iO.png)
+![Image](https://i.imgur.com/Hp7yfm5.png)
