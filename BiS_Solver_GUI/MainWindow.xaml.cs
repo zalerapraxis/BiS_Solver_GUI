@@ -35,7 +35,18 @@ namespace BiS_Solver_GUI
 
         private void BtnXIVDB_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("http://xivdb.com");
+            // Process.Start("http://xivdb.com");
+            
+        }
+
+        private void btnSelectExcludeIDs_Click(object sender, RoutedEventArgs e)
+        {
+            TxtExcludeIDs.Text = LaunchItemPicker();
+        }
+
+        private void btnSelectIncludeIDs_Click(object sender, RoutedEventArgs e)
+        {
+            TxtIncludeIDs.Text = LaunchItemPicker();
         }
 
         private void BtnStart_Click(object sender, RoutedEventArgs e)
@@ -109,6 +120,17 @@ namespace BiS_Solver_GUI
             }
 
             return savageExcludes;
+        }
+
+        private string LaunchItemPicker()
+        {
+            var returnIdList = "";
+            ItemPickerWindow itemPickerWindow = new ItemPickerWindow();
+            if (itemPickerWindow.ShowDialog() == false)
+            {
+                returnIdList = itemPickerWindow.idList;
+            }
+            return returnIdList;
         }
 
         private string GetSpecificExcludes()

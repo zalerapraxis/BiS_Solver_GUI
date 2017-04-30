@@ -68,6 +68,10 @@
     <Reference Include="MahApps.Metro, Version=1.5.0.23, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.5.0\lib\net45\MahApps.Metro.dll</HintPath>
     </Reference>
+    <Reference Include="SaintCoinach, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>FFXIVBisSolverCLI\SaintCoinach.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
@@ -92,9 +96,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ItemPickerWindow.xaml.cs">
+      <DependentUpon>ItemPickerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SolverWindow.xaml.cs">
       <DependentUpon>SolverWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="ItemPickerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -130,7 +141,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="BiS_Solver_GUI_TemporaryKey.pfx" />
     <None Include="FFXIVBisSolverCLI\config.yaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

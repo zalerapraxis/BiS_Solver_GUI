@@ -7,7 +7,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
         Closed="MainWindow_OnClosed"
-        Title="BiS Solver GUI" Height="216.904" Width="522.426" ResizeMode="NoResize">
+        Title="BiS Solver GUI" Height="216.904" Width="560.934" ResizeMode="NoResize">
     <Grid>
         <Label Content="Job:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,12,0,0" Width="40"/>
         <ComboBox x:Name="CmbJobs" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="45,13,0,0">
@@ -96,7 +96,6 @@
         <CheckBox x:Name="ChkRelic" Content="Use Anima?" ToolTip="Anima weapon will always be BiS." HorizontalAlignment="Left" Margin="171,17,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="ChkSsTiers" IsChecked="True" Content="Use SS Tiers?" ToolTip="Calculate using SS tiering." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="262,17,0,0"/>
         <CheckBox x:Name="ChkFood" Content="Use food?" ToolTip="Accuracy on food can change your BiS, but you'll have to use food to meet ACC caps." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="360,17,0,0"/>
-        <Button x:Name="BtnXivdb" Content="XIVDB" HorizontalAlignment="Left" VerticalAlignment="Top" Width="46" Margin="463,12,0,0" Click="BtnXIVDB_Click"/>
         <StackPanel HorizontalAlignment="Left" Height="144" VerticalAlignment="Top" Width="163" Margin="10,43,0,0">
             <Label Content="Include Savage gear up to:"/>
             <RadioButton x:Name="OptLimitAll" GroupName="SavageTurns" Content="None (exclude all gear)" Margin="0,0,0,0"/>
@@ -105,13 +104,15 @@
             <RadioButton x:Name="OptA11S" GroupName="SavageTurns" Content="A11S (pants)" Margin="0,5,0,0"/>
             <RadioButton x:Name="OptNoLimit" GroupName="SavageTurns" Content="No limit (include all gear)" Margin="0,5,0,0"/>
         </StackPanel>
-        <Label Content="Exclude specific IDs:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="187,43,0,0"/>
-        <TextBox x:Name="TxtExcludeIDs" Controls:TextBoxHelper.Watermark="Example: 16480 16467" Controls:TextBoxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Margin="301,43,0,0"/>
-        <Label Content="Include specific IDs:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="187,74,0,0"/>
-        <TextBox x:Name="TxtIncludeIDs" Controls:TextBoxHelper.Watermark="Example: 16480 16467" Controls:TextBoxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Margin="301,74,0,0"/>
+        <Label Content="Exclude IDs:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="187,43,0,0"/>
+        <TextBox x:Name="TxtExcludeIDs" Controls:TextBoxHelper.Watermark="Example: 16480 16467" Controls:TextBoxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" Margin="265,43,0,0"/>
+        <Label Content="Include IDs:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="187,74,0,0"/>
+        <TextBox x:Name="TxtIncludeIDs" Controls:TextBoxHelper.Watermark="Example: 16480 16467" Controls:TextBoxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" Margin="265,74,0,0"/>
 
-        <Button x:Name="BtnChangeGamePath" Content="..." HorizontalAlignment="Left" Margin="487,112,0,0" VerticalAlignment="Top" Width="22" Click="BtnChangeGamePath_Click" Height="26"/>
-        <TextBox x:Name="TxtGamePath" Controls:TextBoxHelper.Watermark="Game path" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Margin="193,112,0,0"/>
-        <Button x:Name="BtnStart" Content="Start" HorizontalAlignment="Left" Margin="426,152,0,0" VerticalAlignment="Top" Width="83" Click="BtnStart_Click"/>
+        <Button x:Name="BtnChangeGamePath" Content="..." HorizontalAlignment="Left" Margin="531,112,0,0" VerticalAlignment="Top" Width="22" Click="BtnChangeGamePath_Click" Height="26"/>
+        <TextBox x:Name="TxtGamePath" Controls:TextBoxHelper.Watermark="Game path" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" Margin="265,112,0,0"/>
+        <Button x:Name="BtnStart" Content="Start" HorizontalAlignment="Left" Margin="471,151,0,0" VerticalAlignment="Top" Width="83" Click="BtnStart_Click"/>
+        <Button x:Name="btnSelectExcludeIDs" Content="Select" HorizontalAlignment="Left" Margin="508,42,0,0" VerticalAlignment="Top" Width="45" Click="btnSelectExcludeIDs_Click"/>
+        <Button x:Name="btnSelectIncludeIDs" Content="Select" HorizontalAlignment="Left" Margin="508,74,0,0" VerticalAlignment="Top" Width="45" Click="btnSelectIncludeIDs_Click"/>
     </Grid>
 </Controls:MetroWindow>
