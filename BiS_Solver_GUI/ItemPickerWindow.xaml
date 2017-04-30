@@ -3,11 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BiS_Solver_GUI"
         mc:Ignorable="d"
         Title="Items Picker" Height="600" Width="600">
     <Grid>
-        <DataGrid x:Name="dgdTest" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="549" VerticalAlignment="Top" Width="572" Margin="10,10,0,0">
+        <DataGrid x:Name="DgdTest" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="549" VerticalAlignment="Top" Width="572" Margin="10,10,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Key" Binding="{Binding Key}" />
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
@@ -15,7 +14,7 @@
                 <DataGridTextColumn Header="Type" Binding="{Binding ItemUICategory}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnSelectItems" Content="Select" HorizontalAlignment="Left" Margin="506,532,0,0" VerticalAlignment="Top" Width="76" Click="btnSelectItems_Click"/>
+        <Button x:Name="BtnSelectItems" Content="Select" HorizontalAlignment="Left" Margin="506,532,0,0" VerticalAlignment="Top" Width="76" Click="BtnSelectItems_Click"/>
 
     </Grid>
 </Window>

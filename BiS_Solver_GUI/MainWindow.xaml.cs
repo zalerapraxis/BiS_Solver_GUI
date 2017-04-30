@@ -33,18 +33,12 @@ namespace BiS_Solver_GUI
             }
         }
 
-        private void BtnXIVDB_Click(object sender, RoutedEventArgs e)
-        {
-            // Process.Start("http://xivdb.com");
-            
-        }
-
-        private void btnSelectExcludeIDs_Click(object sender, RoutedEventArgs e)
+        private void BtnSelectExcludeIDs_Click(object sender, RoutedEventArgs e)
         {
             TxtExcludeIDs.Text = LaunchItemPicker();
         }
 
-        private void btnSelectIncludeIDs_Click(object sender, RoutedEventArgs e)
+        private void BtnSelectIncludeIDs_Click(object sender, RoutedEventArgs e)
         {
             TxtIncludeIDs.Text = LaunchItemPicker();
         }
@@ -74,6 +68,7 @@ namespace BiS_Solver_GUI
 
             SolverWindow solverWindow = new SolverWindow(solverLaunchArgs);
             solverWindow.Show();
+
             ToggleStartButtonEnabled(); // temp disable start button to stop rapid launches, prevents solver from crashing
         }
 
@@ -93,17 +88,27 @@ namespace BiS_Solver_GUI
         private string GetSavagePresetExcludes()
         {
             var savageExcludes = "";
-            // Build excludes list for Savage fights
-            if (OptLimitAll.IsChecked == true)
-                savageExcludes = Properties.Resources.a9sExcludes + Properties.Resources.a11sExcludes +
-                                        Properties.Resources.a10sExcludes + Properties.Resources.a12sExcludes;
-            if (OptA9S.IsChecked == true)
-                savageExcludes = Properties.Resources.a10sExcludes + Properties.Resources.a11sExcludes + 
-                                        Properties.Resources.a12sExcludes;
-            if (OptA10S.IsChecked == true)
-                savageExcludes = Properties.Resources.a11sExcludes + Properties.Resources.a12sExcludes;
-            if (OptA11S.IsChecked == true)
-                savageExcludes = Properties.Resources.a12sExcludes;
+            var cmbIndex = CmbSavageTurnLimit.SelectedIndex;
+            switch (cmbIndex)
+            {
+                case 0:
+                    savageExcludes = Properties.Resources.a9sExcludes + Properties.Resources.a11sExcludes +
+                                     Properties.Resources.a10sExcludes + Properties.Resources.a12sExcludes;
+                    break;
+                case 1:
+                    savageExcludes = Properties.Resources.a10sExcludes + Properties.Resources.a11sExcludes +
+                                     Properties.Resources.a12sExcludes;
+                    break;
+                case 2:
+                    savageExcludes = Properties.Resources.a11sExcludes + Properties.Resources.a12sExcludes;
+                    break;
+                case 3:
+                    savageExcludes = Properties.Resources.a12sExcludes;
+                    break;
+                case 4:
+                    break;
+            }
+
 
             // Clean preset excludes if user has specified IDs to include
             if (!string.IsNullOrWhiteSpace(TxtIncludeIDs.Text))
@@ -128,7 +133,7 @@ namespace BiS_Solver_GUI
             ItemPickerWindow itemPickerWindow = new ItemPickerWindow();
             if (itemPickerWindow.ShowDialog() == false)
             {
-                returnIdList = itemPickerWindow.idList;
+                returnIdList = itemPickerWindow.IdList;
             }
             return returnIdList;
         }
